@@ -16,8 +16,6 @@
             varying mediump float alpha;
             
             void main() {
-                //float _angle = angle + apos.x * width;
-                
                 float _angle = (angle + apos.x * width) * 3.1415926535897932384626433832795028 / 180.0;
 
                 if (height1 == 0.0 || height2 == 0.0) {
@@ -37,10 +35,7 @@
                 }
 
                 if (apos.y == 0.0) {
-                    //gl_Position = projection * vec4(cos(_angle) * 2.0, sin(_angle) * 2.0, 0.0, 1.0);
                     gl_Position = projection * vec4(cos(_angle) * 2.0, sin(_angle) * 2.0, 0.0, 1.0);
-                
-                    //gl_Position = projection * vec4(0.0, 0.0, 0.0, 1.0);
                 }
                 else {
                     gl_Position = projection * vec4(cos(_angle) * _height, sin(_angle) * _height, 0.0, 1.0);
@@ -69,19 +64,6 @@
                 }
             }
         </script>
-        <!-- <script id="vs" type="x-shader/x-vertex">
-            attribute vec4 apos;
-            uniform mat4 projection;
-            
-            void main() {
-               gl_Position = projection * apos;
-            }
-        </script>
-        <script id="fs" type="x-shader/x-fragment">
-            void main() {
-               gl_FragColor = vec4(1, 1, 1, 1);
-            }
-        </script> -->
         <script src="https://webglfundamentals.org/webgl/resources/m4.js"></script>
         <script src="js/render2.js"></script>
     </head>
@@ -91,7 +73,6 @@
     </style>
     <style>
         #canvas {
-            /* position: fixed; */
             left: 0;
             top: 0;
             width: 100%;
@@ -106,7 +87,6 @@
         }
     </style>
     
-    <!-- <audio id="input" src="https://dl.espressif.com/dl/audio/ff-16b-1c-8000hz.mp3" controls="true" onloadedmetadata="loadedMetaData(event);"></audio><br /> -->
     <canvas id="canvas"></canvas>
     <audio id="audio" controls></audio>
   </body>
